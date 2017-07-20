@@ -1,4 +1,4 @@
-
+// Uma alteração qualquer
 public class Matriz
 {
     //     private int matriz[][];
@@ -39,7 +39,7 @@ public class Matriz
         try {
             matriz[linha][coluna] = novoValor;
         } catch (Exception e){
-            System.out.println("NÃ£o foi possÃ­vel atualizar o valor.");
+            System.out.println("Não foi possível atualizar o valor.");
         }
     }
 
