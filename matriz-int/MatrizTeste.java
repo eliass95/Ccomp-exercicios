@@ -1,8 +1,22 @@
+import java.util.Scanner;
 
 public class MatrizTeste
 {
     public static void main(String args[]) {
-        int m[][] = {{1,2,3}, {4,5,6}, {7,8,9}};
-        System.out.println(Matriz.mostraMatriz(m));
+        Matriz matriz = new Matriz();
+        System.out.println(matriz.mostraMatriz());
+        
+        Scanner t = new Scanner(System.in);
+        System.out.println("Atualizar valor da Matriz");
+        System.out.print("Insira a linha: ");
+        int linha = t.nextInt();
+        System.out.print("Insira a coluna: ");
+        int coluna = t.nextInt();
+        System.out.print("Insira o valor: ");
+        int valor = t.nextInt();
+        
+        matriz.atualizaMatriz(linha, coluna, valor);
+        
+        System.out.println(matriz.mostraMatriz());
     }
 }
