@@ -1,13 +1,11 @@
-// Uma alteração qualquer
 public class Matriz
 {
-    //     private int matriz[][];
     private int matriz[][];
 
     public Matriz() {
-        this.matriz = new int[][] {{1, 0, 2},
-                                   {1, 2, 5},
-                                   {2, 0, 0} };
+        this.matriz = new int[][] {{1, 2, 3},
+                                   {4, 5, 6},
+                                {7, 8, 9}};
     }
 
     public Matriz(int matriz[][]) {
@@ -39,7 +37,7 @@ public class Matriz
         try {
             matriz[linha][coluna] = novoValor;
         } catch (Exception e){
-            System.out.println("Não foi possível atualizar o valor.");
+            System.out.println("Nao foi possivel atualizar o valor.");
         }
     }
 
@@ -58,7 +56,7 @@ public class Matriz
         }
         return somadiagonal;
     }
-    
+
     public int somaDiagonalSecundaria() {
         int somadiagonal = 0;
         if(isMatrizQuadrada()) {
@@ -74,7 +72,7 @@ public class Matriz
         }
         return somadiagonal;
     }
-    
+
     public int somaLinha(int lin) {
         int somalinha = 0;
         for (int c = 0; c < matriz[lin].length; c++) {
@@ -82,12 +80,34 @@ public class Matriz
         }
         return somalinha;
     }
-    
+
     public int somaColuna(int col) {
         int somalinha = 0;
         for (int l = 0; l < matriz[col].length; l++) {
             somalinha += matriz[l][col];
         }
         return somalinha;
+    }
+
+    public int[][] transposta() {
+        int[][] matrizTransposta = new int[matriz[0].length][matriz.length];
+        for (int linha = 0; linha < matriz.length; linha++) {
+            for (int coluna = 0; coluna < matriz.length; coluna++) {
+                matrizTransposta[linha][coluna] = this.matriz[coluna][linha];
+            } 
+        }
+        return matrizTransposta;
+    }
+    
+    public String mostraTransposta() {
+        int[][] transposta = transposta();
+        String matrizFinal = "";
+        for (int linha = 0; linha < transposta.length; linha++) {
+            for (int coluna = 0; coluna < transposta[linha].length; coluna++) {
+                matrizFinal += transposta[linha][coluna] + "  ";
+            } 
+            matrizFinal += "\n";
+        }
+        return matrizFinal;
     }
 }
