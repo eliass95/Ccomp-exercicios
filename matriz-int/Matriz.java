@@ -110,4 +110,32 @@ public class Matriz
         }
         return matrizFinal;
     }
+    
+    public boolean isQuadradoMagico() {
+        if(isMatrizQuadrada()){
+            System.out.println("Quadrada");
+            int soma[] = new int[matriz.length * 2 + 2];
+            
+            for (int i=0; i<matriz.length; i++) {
+                soma[i] = somaLinha(i);
+                soma[i + matriz.length] = somaColuna(i);
+            }
+            
+            soma[soma.length-2] = somaDiagonalPrincipal();
+            soma[soma.length-1] = somaDiagonalSecundaria();
+            
+            boolean m = true;
+            
+            for(int i=0; i<soma.length; i++) {
+                if(soma[i] != soma[0]) {
+                    m=false;
+                    break;
+                }
+            }
+            
+            return m;
+        } else {
+            return false;
+        }
+    }
 }
