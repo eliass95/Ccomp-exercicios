@@ -11,5 +11,22 @@ public class Empregado
         this.salario = salario;
         this.id = proximoId;
         proximoId++;
+        
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+    
+    public double getSalario() {
+        return salario;
+    }
+    
+    public static int getProximoId() {
+        return proximoId;
     }
 }
