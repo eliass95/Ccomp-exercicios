@@ -3,7 +3,7 @@ public class Empregado
     private int id;
     private String nome;
     private double salario;
-    private static int proximoId;
+    private static int proximoId = 1;
     
     public Empregado(String nome, double salario)
     {
@@ -11,7 +11,6 @@ public class Empregado
         this.salario = salario;
         this.id = proximoId;
         proximoId++;
-        
     }
     
     public int getId() {
