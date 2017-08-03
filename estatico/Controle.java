@@ -40,10 +40,38 @@ public class Controle
         for(int i=0; i<this.listEmp.size(); i++) {
             empregado = listEmp.get(i);
             lista += empregado.getId() + " " 
-                    + empregado.getNome() + " " 
-                    + empregado.getSalario() + "\n";
+                   + empregado.getNome() + " " 
+                   + empregado.getSalario() + "\n";
         }        
         return lista;
+    }
+    
+    /**
+     * Localiza departamento e funcionario.
+     * Adiciona empregado ao departamento.
+     */
+    public void adicionaEmpDep (String departamento, int matricula) {
+        Departamento departamentoDestino;
+        boolean existeDep = false;
+        
+        for(int item=0; item < this.listDep.size(); item++) {
+            Departamento depAux = this.listDep.get(item);
+            
+            if (depAux.getNome().equals(departamento)) {
+                
+                departamentoDestino = this.listDep.get(item);
+                existeDep = true;
+                break;
+                
+            }
+        }
+        
+        if (existeDep) {
+            // add funcionario
+               
+        } else {
+            // erro
+        }
     }
 }
 
