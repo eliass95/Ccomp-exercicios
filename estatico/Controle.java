@@ -4,7 +4,7 @@ public class Controle
 {
     private ArrayList<Empregado> listEmp;
     private ArrayList<Departamento> listDep;
-    
+
     /**
      * Instanciar ArrayList
      */
@@ -13,7 +13,7 @@ public class Controle
         listEmp = new ArrayList<Empregado>();
         listDep = new ArrayList<Departamento>();
     }
-    
+
     /**
      * Cria objeto empregado
      * Insere empregado na lista de empregados 
@@ -22,15 +22,16 @@ public class Controle
         Empregado novoEmpregado = new Empregado(nome, salario);
         this.listEmp.add(novoEmpregado);
     }
-    
+
     /**
      * Cria objeto departamento
      * Insere departamento na lista de departamentos
      */
     public void cadastraDepartamento(String nome) {
         Departamento novoDepartamento = new Departamento(nome);
+        this.listDep.add(novoDepartamento);
     }
-    
+
     /**
      * Retorna matricula, nome e salário de todos os empregados cadastrados.
      */
@@ -40,40 +41,47 @@ public class Controle
         for(int i=0; i<this.listEmp.size(); i++) {
             empregado = listEmp.get(i);
             lista += empregado.getId() + " " 
-                   + empregado.getNome() + " " 
-                   + empregado.getSalario() + "\n";
+            + empregado.getNome() + " " 
+            + empregado.getSalario() + "\n";
         }        
         return lista;
     }
-    
+
     /**
      * Localiza departamento e funcionario.
      * Adiciona empregado ao departamento.
      */
-    public void adicionaEmpDep (String departamento, int matricula) {
-        Departamento departamentoDestino;
-        boolean existeDep = false;
-        
-        for(int item=0; item < this.listDep.size(); item++) {
-            Departamento depAux = this.listDep.get(item);
-            
-            if (depAux.getNome().equals(departamento)) {
+    public void adicionaEmpDep (String departamento, int matricula) {        
+        for(Departamento dep: listDep) {
+
+            if (dep.getNome().equals(departamento)) {  
                 
-                departamentoDestino = this.listDep.get(item);
-                existeDep = true;
-                break;
-                
+                for(Empregado emp : listEmp) {
+                    if(emp.getId() == matricula) {
+                        dep.addEmpregado(emp);
+                        System.out.println(
+                            String.format("Empregado %s adicionado com sucesso ao departamento %s", 
+                                emp.getNome(), dep.getNome()));
+                        break;
+                    }
+                }
+
             }
-        }
-        
-        if (existeDep) {
-            // add funcionario
-               
-        } else {
-            // erro
+
         }
     }
+
+    public String listaEmpDep (String departamento) {        
+        String listaFuncionarios = "";
+
+        for(Departamento dep: listDep) {
+            if (dep.getNome().equals(departamento)) {  
+                listaFuncionarios += "Funcionarios: " + dep.getNome() + " ---------------------------\n";
+                listaFuncionarios += dep.listarEmpregado();
+            }
+        }
+
+        return listaFuncionarios;
+    }
 }
-
-
 

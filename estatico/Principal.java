@@ -8,6 +8,8 @@ public class Principal
         int op = 0;
         String nome;
         double salario;
+        int matricula;
+        
         while(op != 9) {
             showMenu();
             op = input.nextInt();
@@ -27,6 +29,19 @@ public class Principal
                     nome = input.next();
                     controle.cadastraDepartamento(nome);
                     break;
+                case 4:
+                    System.out.println("Adicionar Empregado ao departamento ----------");
+                    System.out.print("Matricula do empregado: ");
+                    matricula = input.nextInt();
+                    System.out.print("Departamento: ");
+                    nome = input.next();
+                    controle.adicionaEmpDep(nome, matricula);
+                    break;
+                case 6:
+                    System.out.print("Departamento: ");
+                    nome = input.next();
+                    System.out.println(controle.listaEmpDep(nome));
+                    break;
                 case 9:
                     System.out.print("Finalizando .  .  .  .  .  . ");
                     break;
@@ -35,12 +50,12 @@ public class Principal
     }
     
     public static void showMenu() {
-        String menu = "\nMenu ------------------------------ \n" +
+        String menu = "\n\n\nMenu ------------------------------ \n" +
                       "1 - Cadastrar Empregado \n" +
                       "2 - Listar todos Empregados \n" +
                       "3 - Cadastrar Departamento \n" +
                       "4 - Adicionar Empregado ao Departamento \n" +
-                      "5 - Remover Empregado Empregado ao Departamento \n" + 
+                      "5 - Remover Empregado Empregado do Departamento \n" + 
                       "6 - Listar Empregados por Departamento \n" +
                       "9 - Fim \n" + 
                       "----------------------------------- \n" + 
