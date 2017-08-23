@@ -37,6 +37,14 @@ public class Principal
                     nome = input.next();
                     controle.adicionaEmpDep(nome, matricula);
                     break;
+                case 5:
+                    System.out.println("Remover Empregado do departamento ----------");
+                    System.out.print("Matricula do empregado: ");
+                    matricula = input.nextInt();
+                    System.out.print("Departamento: ");
+                    nome = input.next();
+                    controle.removeEmpDep(nome, matricula);
+                    break;
                 case 6:
                     System.out.print("Departamento: ");
                     nome = input.next();

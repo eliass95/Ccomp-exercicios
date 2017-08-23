@@ -70,6 +70,30 @@ public class Controle
 
         }
     }
+    
+    /**
+     * Localiza departamento e funcionario.
+     * Remove empregado do departamento.
+     */
+    public void removeEmpDep (String departamento, int matricula) {        
+        for(Departamento dep: listDep) {
+
+            if (dep.getNome().equals(departamento)) {  
+                
+                for(Empregado emp : listEmp) {
+                    if(emp.getId() == matricula) {
+                        dep.removeEmpregado(emp);
+                        System.out.println(
+                            String.format("Empregado %s removido com sucesso ao departamento %s", 
+                                emp.getNome(), dep.getNome()));
+                        break;
+                    }
+                }
+
+            }
+
+        }
+    }
 
     public String listaEmpDep (String departamento) {        
         String listaFuncionarios = "";
@@ -78,6 +102,7 @@ public class Controle
             if (dep.getNome().equals(departamento)) {  
                 listaFuncionarios += "Funcionarios: " + dep.getNome() + " ---------------------------\n";
                 listaFuncionarios += dep.listarEmpregado();
+                break;
             }
         }
 
