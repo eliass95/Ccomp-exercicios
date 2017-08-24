@@ -38,4 +38,14 @@ public class Departamento
     public int getNumFuncionarios() {
         return listEmp.size();
     }
+    
+    public boolean existeEmpregado(int matricula) {
+        for(int i=0; i < listEmp.size(); i++) {
+            Empregado emp = listEmp.get(i);
+            if(emp.getId() == matricula) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

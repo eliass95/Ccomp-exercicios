@@ -58,11 +58,16 @@ public class Controle
 
                 for(Empregado emp : listEmp) {
                     if(emp.getId() == matricula) {
-                        dep.addEmpregado(emp);
-                        System.out.println(
-                            String.format("Empregado %s adicionado com sucesso ao departamento %s", 
-                                emp.getNome(), dep.getNome()));
-                        break;
+
+                        if(dep.existeEmpregado(matricula)) {
+                            System.out.println("Não foi possivel adicionar empregado já existente.");
+                        } else {
+                            dep.addEmpregado(emp);
+                            System.out.println(
+                                String.format("Empregado %s adicionado com sucesso ao departamento %s", 
+                                    emp.getNome(), dep.getNome()));
+                            break;
+                        }
                     }
                 }
 
