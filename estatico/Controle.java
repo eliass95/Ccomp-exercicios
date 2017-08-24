@@ -94,7 +94,10 @@ public class Controle
 
         }
     }
-
+    
+    /**
+     *  Lista os funcionários de um departamento.
+     */
     public String listaEmpDep (String departamento) {        
         String listaFuncionarios = "";
 
@@ -108,5 +111,15 @@ public class Controle
 
         return listaFuncionarios;
     }
-}
 
+    /**
+     *  Lista todos os departamentos cadastrados.
+     */
+	public String listarDepartamentos() {
+		String listaString = "";
+		for(Departamento dep: listDep) {
+			listaString += dep.getNome() + "\n";
+		}
+		return listaString;
+	}
+}

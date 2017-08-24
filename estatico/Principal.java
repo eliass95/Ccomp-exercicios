@@ -50,6 +50,9 @@ public class Principal
                     nome = input.next();
                     System.out.println(controle.listaEmpDep(nome));
                     break;
+                case 7:
+                    System.out.println(controle.listarDepartamentos());
+                    break;
                 case 9:
                     System.out.print("Finalizando .  .  .  .  .  . ");
                     break;
@@ -65,6 +68,7 @@ public class Principal
                       "4 - Adicionar Empregado ao Departamento \n" +
                       "5 - Remover Empregado Empregado do Departamento \n" + 
                       "6 - Listar Empregados por Departamento \n" +
+                      "7 - Listar Departamentos \n" +
                       "9 - Fim \n" + 
                       "----------------------------------- \n" + 
                       "> ";
