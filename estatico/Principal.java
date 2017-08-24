@@ -53,6 +53,11 @@ public class Principal
                 case 7:
                     System.out.println(controle.listarDepartamentos());
                     break;
+                case 8:
+                    System.out.print("Excluir Departamento: ");
+                    nome = input.next();
+                    controle.excluirDepartamento(nome);
+                    break;
                 case 9:
                     System.out.print("Finalizando .  .  .  .  .  . ");
                     break;
@@ -69,6 +74,7 @@ public class Principal
                       "5 - Remover Empregado Empregado do Departamento \n" + 
                       "6 - Listar Empregados por Departamento \n" +
                       "7 - Listar Departamentos \n" +
+                      "8 - Remover Departamento \n" + 
                       "9 - Fim \n" + 
                       "----------------------------------- \n" + 
                       "> ";

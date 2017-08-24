@@ -34,9 +34,8 @@ public class Departamento
         }
         return lista;
     }
+    
+    public int getNumFuncionarios() {
+        return listEmp.size();
+    }
 }
-
-// for (int i = 0; i < this.listEmp.size(); i++) {
-//     empregado = this.listEmp.get(i);
-//     lista += (empregado.getId() + " - " + empregado.getNome() + "\n");
-// }

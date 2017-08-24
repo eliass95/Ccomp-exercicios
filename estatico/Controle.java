@@ -55,7 +55,7 @@ public class Controle
         for(Departamento dep: listDep) {
 
             if (dep.getNome().equals(departamento)) {  
-                
+
                 for(Empregado emp : listEmp) {
                     if(emp.getId() == matricula) {
                         dep.addEmpregado(emp);
@@ -70,7 +70,7 @@ public class Controle
 
         }
     }
-    
+
     /**
      * Localiza departamento e funcionario.
      * Remove empregado do departamento.
@@ -79,7 +79,7 @@ public class Controle
         for(Departamento dep: listDep) {
 
             if (dep.getNome().equals(departamento)) {  
-                
+
                 for(Empregado emp : listEmp) {
                     if(emp.getId() == matricula) {
                         dep.removeEmpregado(emp);
@@ -94,13 +94,12 @@ public class Controle
 
         }
     }
-    
+
     /**
      *  Lista os funcionários de um departamento.
      */
     public String listaEmpDep (String departamento) {        
         String listaFuncionarios = "";
-
         for(Departamento dep: listDep) {
             if (dep.getNome().equals(departamento)) {  
                 listaFuncionarios += "Funcionarios: " + dep.getNome() + " ---------------------------\n";
@@ -108,18 +107,33 @@ public class Controle
                 break;
             }
         }
-
         return listaFuncionarios;
     }
 
     /**
      *  Lista todos os departamentos cadastrados.
      */
-	public String listarDepartamentos() {
-		String listaString = "";
-		for(Departamento dep: listDep) {
-			listaString += dep.getNome() + "\n";
-		}
-		return listaString;
-	}
+    public String listarDepartamentos() {
+        String listaString = "";
+        for(Departamento dep: listDep) {
+            listaString += dep.getNome() + "\n";
+        }
+        return listaString;
+    }
+
+    public void excluirDepartamento(String nomeDep) {
+        for(int i = 0; i < listDep.size(); i++) {
+            Departamento dep = listDep.get(i);
+            if (dep.getNome().equals(nomeDep)) {
+                if(dep.getNumFuncionarios() == 0) {
+                    listDep.remove(dep);
+                    System.out.println("Departamento " + dep.getNome() + " removido com sucesso.");
+                    break;
+                } else {
+                    System.out.println("Não foi possível excluir departamento pois ele possui funcionários.");
+                    break;
+                }
+            }	       
+        }
+    }
 }
