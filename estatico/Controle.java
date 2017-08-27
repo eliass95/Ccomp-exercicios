@@ -6,7 +6,7 @@ public class Controle
     private ArrayList<Departamento> listDep;
 
     /**
-     * Instanciar ArrayList
+     * Instanciar ArrayList de Empregados e Departamentos
      */
     public Controle()
     {
@@ -51,16 +51,15 @@ public class Controle
      * Localiza departamento e funcionario.
      * Adiciona empregado ao departamento.
      */
-    public void adicionaEmpDep (String departamento, int matricula) {        
+    public void adicionaEmpDep (String nomeDep, int idEmpregado) {
         for(Departamento dep: listDep) {
-
-            if (dep.getNome().equals(departamento)) {  
-
+            if (dep.getNome().equals(nomeDep)) {  
                 for(Empregado emp : listEmp) {
-                    if(emp.getId() == matricula) {
-
-                        if(dep.existeEmpregado(matricula)) {
-                            System.out.println("Não foi possivel adicionar empregado já existente.");
+                    if (emp.getId() == idEmpregado) {
+                        
+                        if (dep.existeEmpregado(idEmpregado)) {
+                            System.out.println("Não é possivel adicionar empregado já existente.");
+                            break;
                         } else {
                             dep.addEmpregado(emp);
                             System.out.println(
@@ -70,9 +69,7 @@ public class Controle
                         }
                     }
                 }
-
             }
-
         }
     }
 
@@ -80,13 +77,11 @@ public class Controle
      * Localiza departamento e funcionario.
      * Remove empregado do departamento.
      */
-    public void removeEmpDep (String departamento, int matricula) {        
+    public void removeEmpDep (String nomeDep, int idEmpregado) {
         for(Departamento dep: listDep) {
-
-            if (dep.getNome().equals(departamento)) {  
-
+            if (dep.getNome().equals(nomeDep)) {  
                 for(Empregado emp : listEmp) {
-                    if(emp.getId() == matricula) {
+                    if(emp.getId() == idEmpregado) {
                         dep.removeEmpregado(emp);
                         System.out.println(
                             String.format("Empregado %s removido com sucesso ao departamento %s", 
@@ -94,19 +89,17 @@ public class Controle
                         break;
                     }
                 }
-
             }
-
         }
     }
 
     /**
      *  Lista os funcionários de um departamento.
      */
-    public String listaEmpDep (String departamento) {        
+    public String listaEmpDep (String nomeDep) {        
         String listaFuncionarios = "";
         for(Departamento dep: listDep) {
-            if (dep.getNome().equals(departamento)) {  
+            if (dep.getNome().equals(nomeDep)) {  
                 listaFuncionarios += "Funcionarios: " + dep.getNome() + " ---------------------------\n";
                 listaFuncionarios += dep.listarEmpregado();
                 break;
