@@ -134,4 +134,15 @@ public class Controle
             }	       
         }
     }
+
+    public void alterarSalarioEmpregado(int idEmpregado, double novoSalario) {
+        for (int i=0; i<listEmp.size(); i++) {
+            Empregado emp = listEmp.get(i);
+            if(emp.getId() == idEmpregado) {
+                emp.setSalario(novoSalario);
+                System.out.printf("O salario de %s foi alterado com sucesso para R$ %s", 
+                    emp.getNome(), novoSalario);
+            }
+        }
+    }
 }

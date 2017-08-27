@@ -1,3 +1,5 @@
+import com.sun.org.apache.xerces.internal.impl.dv.xs.DoubleDV;
+
 public class Empregado
 {
     private int id;
@@ -27,5 +29,9 @@ public class Empregado
     
     public static int getProximoId() {
         return proximoId;
+    }
+
+    public void setSalario(double novoSalario) {
+        this.salario = novoSalario;
     }
 }

@@ -10,7 +10,7 @@ public class Principal
         double salario;
         int matricula;
         
-        while(op != 9) {
+        while(op != 11) {
             showMenu();
             op = input.nextInt();
             System.out.println("\n\n\n\n");
@@ -67,8 +67,17 @@ public class Principal
                     nome = input.next();
                     controle.excluirDepartamento(nome);
                     break;
+                
+                case 9: // Alterar Salário
+                    System.out.println("ALTERAR SALARIO>");
+                    System.out.print("Matricula do empregado: ");
+                    matricula = input.nextInt();
+                    System.out.print("Salario: ");
+                    salario = input.nextDouble();
+                    controle.alterarSalarioEmpregado(matricula, salario);
+                    break;
 
-                case 9: // Encerrar programa
+                case 11: // Encerrar programa
                     System.out.print("Finalizando .  .  .  .  .  . ");
                     input.close();
                     break;
@@ -86,7 +95,8 @@ public class Principal
                       "6 - Listar Empregados por Departamento \n" +
                       "7 - Listar Departamentos \n" +
                       "8 - Remover Departamento \n" + 
-                      "9 - Fim \n" + 
+                      "9 - Alterar Salario \n" +
+                      "11 - Encerrar \n" + 
                       "----------------------------------- \n" + 
                       "> ";
         System.out.print(menu);
