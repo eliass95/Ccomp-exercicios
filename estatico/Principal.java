@@ -76,7 +76,14 @@ public class Principal
                     salario = input.nextDouble();
                     controle.alterarSalarioEmpregado(matricula, salario);
                     break;
-
+                    
+                case 10:
+                    System.out.println("REMOVER EMPREGADO>");
+                    System.out.print("Matricula do empregado: ");
+                    matricula = input.nextInt();
+                    controle.excluirEmpregado(matricula);
+                    break;
+                    
                 case 11: // Encerrar programa
                     System.out.print("Finalizando .  .  .  .  .  . ");
                     input.close();
@@ -96,7 +103,8 @@ public class Principal
                       "7 - Listar Departamentos \n" +
                       "8 - Remover Departamento \n" + 
                       "9 - Alterar Salario \n" +
-                      "11 - Encerrar \n" + 
+                      "10 - Remover Empregado \n" + 
+                      "11 - Encerrar \n" +
                       "----------------------------------- \n" + 
                       "> ";
         System.out.print(menu);

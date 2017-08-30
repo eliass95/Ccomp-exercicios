@@ -1,11 +1,10 @@
-import com.sun.org.apache.xerces.internal.impl.dv.xs.DoubleDV;
-
 public class Empregado
 {
     private int id;
     private String nome;
     private double salario;
     private static int proximoId = 1;
+    private boolean alocadoDepartamento;
     
     public Empregado(String nome, double salario)
     {
@@ -29,6 +28,14 @@ public class Empregado
     
     public static int getProximoId() {
         return proximoId;
+    }
+    
+    public void setAlocadoDepartamento(boolean alocado) {
+        this.alocadoDepartamento = alocado;
+    }
+    
+    public boolean getAlocadoDepartamento() {
+        return this.alocadoDepartamento;
     }
 
     public void setSalario(double novoSalario) {

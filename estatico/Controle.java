@@ -57,11 +57,12 @@ public class Controle
                 for(Empregado emp : listEmp) {
                     if (emp.getId() == idEmpregado) {
                         
-                        if (dep.existeEmpregado(idEmpregado)) {
+                        if (emp.getAlocadoDepartamento()) {
                             System.out.println("Não é possivel adicionar empregado já existente.");
                             break;
                         } else {
                             dep.addEmpregado(emp);
+                            emp.setAlocadoDepartamento(true);
                             System.out.println(
                                 String.format("Empregado %s adicionado com sucesso ao departamento %s", 
                                     emp.getNome(), dep.getNome()));
@@ -83,12 +84,24 @@ public class Controle
                 for(Empregado emp : listEmp) {
                     if(emp.getId() == idEmpregado) {
                         dep.removeEmpregado(emp);
+                        emp.setAlocadoDepartamento(false);
                         System.out.println(
                             String.format("Empregado %s removido com sucesso ao departamento %s", 
                                 emp.getNome(), dep.getNome()));
                         break;
                     }
                 }
+            }
+        }
+    }
+    
+    /**
+     * Remove empregado dos departamentos.
+     */
+    public void removeEmpDep (Empregado empregado) {
+        for(Departamento dep: listDep) {
+            if(dep.existeEmpregado(empregado.getId())) {
+                dep.removeEmpregado(empregado);
             }
         }
     }
@@ -131,7 +144,7 @@ public class Controle
                     System.out.println("Não foi possível excluir departamento pois ele possui funcionários.");
                     break;
                 }
-            }	       
+            }          
         }
     }
 
@@ -142,6 +155,17 @@ public class Controle
                 emp.setSalario(novoSalario);
                 System.out.printf("O salario de %s foi alterado com sucesso para R$ %s", 
                     emp.getNome(), novoSalario);
+            }
+        }
+    }
+    
+    public void excluirEmpregado(int idEmpregado) {
+        for (int i=0; i<listEmp.size(); i++) {
+            Empregado emp = listEmp.get(i);
+            if(emp.getId() == idEmpregado) {
+                listEmp.remove(emp);
+                removeEmpDep(emp);
+                System.out.printf("O empregado %s foi removido com sucesso", emp.getNome());
             }
         }
     }
