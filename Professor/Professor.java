@@ -4,6 +4,15 @@ public class Professor
     private int matricula;
     private double salario;
     
+    public Professor() {
+    }
+    
+    public Professor(int matricula, String nome, double salario) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.salario = salario;
+    }
+    
     public String getNome() {
         return this.nome;
     }
