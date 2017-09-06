@@ -1,4 +1,3 @@
-
 public class Professor
 {
     private String nome;
@@ -17,15 +16,15 @@ public class Professor
         return this.salario;
     }
     
-    public void setNome(String _nome) {
-        this.nome = _nome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
     
-    public void setMatricula(int _matricula) {
-        this.matricula = _matricula;
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
     }
     
-    public void setSalario(double _salario) {
-        this.salario = _salario;
+    public void setSalario(double salario) {
+        this.salario = salario;
     }
 }
