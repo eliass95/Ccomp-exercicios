@@ -12,7 +12,7 @@ public class TesteProfessor
         System.out.println("Horas: " + ph.getHoras());        
         System.out.println("Salario: " + ph.getSalario());
         
-        // ----------------------
+        // ---------------------------
         
         ProfessorDE pde = new ProfessorDE();
         pde.setMatricula(9914);
@@ -25,5 +25,13 @@ public class TesteProfessor
         System.out.println("Salario: " + pde.getSalario());
         System.out.println("Licença Premio: " + pde.getLicencaPremio());
         
+        // ---------------------------
+        
+        ProfessorHorista phr = new ProfessorHorista(100, "João", 20, 10);
+        
+        System.out.println("\nMatricula: " + phr.getMatricula());
+        System.out.println("Nome: " + phr.getNome());
+        System.out.println("Horas: " + phr.getHoras());        
+        System.out.println("Salario: " + phr.getSalario());
     }
 }
